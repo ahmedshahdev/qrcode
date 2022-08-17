@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas2"></canvas>
+
+    <!-- <script src="../dist/main.js"></script> -->
+    <script src="../qrcode.js"></script>
+
+    <script>
+      QRCode.toCanvas(document.getElementById('canvas'), 'sample text', {
+        width: "200",
+        maskPattern: "1",
+        color: {
+      dark: '#2f2f2f',  // Blue dots
+      light: '#505050' // Transparent background
+    },
+      }, function (error) {
+        if (error) console.error(error)
+        console.log('success!');
+      })
+      var opts = {
+  errorCorrectionLevel: 'H',
+  type: 'image/jpeg',
+  quality: 0.3,
+  margin: 1,
+  color: {
+    dark:"#010599FF",
+    light:"#FFBF60FF"
+  }
+}
+
+QRCode.toDataURL('text', opts, function (err, url) {
+  if (err) throw err
+    console.log(url);
+
+    document.body.innerHTML += `<a href="${url}" download="grass.jpg"> download  </a>`
+    })
+
+    </script>
+
+    
+
+</body>
+</html>
