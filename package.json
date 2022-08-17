@@ -9,7 +9,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "build": "precompile"
+    "build": "webpack"
   },
   "config": {
     "pre-compiled": {
